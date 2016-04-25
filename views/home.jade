@@ -7,9 +7,11 @@ block content
 				#user
 					h1.text-center.login-title Welcome #{user.username}
 						a(href='/info', class='text-center new-account') Check your info
-						a(href='/signout', class='text-center new-account') Sign Out
-						a(href='/message', class='text-center new-account') Create Your Message
 						a(href='/users', class='text-center new-account') List User
+						a(href='/send-message', class='text-center new-account') Sent-Messages
+						a(href='/receive-message', class='text-center new-account') Received-Messages
+						a(href='/message', class='text-center new-account') Create Your Message
+						a(href='/signout', class='text-center new-account') Sign Out
 					#message
 					if message
 						h1.text-center.error-message #{message}

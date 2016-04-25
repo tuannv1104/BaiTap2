@@ -18,17 +18,12 @@ block content
 
                 - for (var i=0; i<ranking.ranking.length; i++){
                     +article
-                        form(action='/addfriend', method='POST')
-                            h4.list-group-item-heading= ranking.ranking[i].username
-                            p.list-group-item-text= ranking.ranking[i].email 
-                            input(type='hidden', name='meemail', value= user.email)
-                            input(type='hidden', name='fremail', value= ranking.ranking[i].email)
+                        
+                        h4.list-group-item-heading= ranking.ranking[i].content
+                        p.list-group-item-text= 'to: '+ ranking.ranking[i].to 
+                        
                             
-                            if(ranking.ranking[i].status== 'stranger')
-                                button( type='submit') Add Friend
-                                            span.clearfix 
-                            else
-                                h4 Friend
+                            
                                              
                 - }
                 a(href='/home', class='text-center new-account') Back to homepage
