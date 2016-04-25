@@ -23,33 +23,33 @@ module.exports = function(passport){
 	// );
 
 	router.get('/users', function(req, res) {
-		UserTab.find(function(err, users) {
-	  	str = "";
-	  	
-	  
-	        var result = {
+		var result = {
 	            ranking: [],
 	        }
+	    var result1 = {
+	            ranking1: [],
+	        }
+		UserTab.find(function(err, users) {
 	        result.ranking[0] = users[0];
-	         var temp = 0
+	        var temp = 0
 	        for(var i = 0; i < users.length; i++){
 	        	if (users[i].email!=req.user.email)
 	         		{	result.ranking[temp] = users[i];
 	         			temp++;
 	         			}           
 	        }
-	        //render the ranking with all the info
-	        
-	        
-
-	        
-			res.render('listuser', { ranking: result, user: req.user
-	       
-   
-   //res.json(users);
+	        Friend.find(function(err, friendships) {
+	        	for(var i=0; i < result.ranking.length; i++)
+	        		for(var j=0; j<friendships.length;j++){
+	        			if((friendships[j].fremail==result.ranking[i].email)&&(friendships[j].meemail==req.user.email))
+	        				result.ranking[i].status='friend!';
+	        		}
+	        	console.log(result);
+	        	res.render('listuser', { ranking: result, user: req.user});
+	        })
+			
   		});
   		
-	});
 	});
 
 	

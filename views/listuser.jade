@@ -24,7 +24,7 @@ block content
                             input(type='hidden', name='meemail', value= user.email)
                             input(type='hidden', name='fremail', value= ranking.ranking[i].email)
                             
-                            if(i<5)
+                            if(ranking.ranking[i].status== 'stranger')
                                 button( type='submit') Add Friend
                                             span.clearfix 
                             else
