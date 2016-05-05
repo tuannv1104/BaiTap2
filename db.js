@@ -1,4 +1,4 @@
 module.exports = {
 	
-	'url' : 'mongodb://tuannv1104@gmail.com:viplatoi114 @ds013182.mlab.com:13182/bt2'
+	'url' : 'mongodb://<baitap2dnt:baitap2dnt @ds013172.mlab.com:13172/baitap2'
 }
